@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Enter Choices</title>
+</head>
+<body>
+  <h1>Enter Choices</h1>
+  <input type="text" id="choicesInput" placeholder="Enter choices separated by commas">
+  <button id="submitButton">Submit</button>
+  <ul id="choicesList"></ul>
+
+  <script>
+    const submitButton = document.getElementById('submitButton');
+    const choicesInput = document.getElementById('choicesInput');
+    const choicesList = document.getElementById('choicesList');
+
+    submitButton.addEventListener('click', function() {
+      // Clear the current list
+      choicesList.innerHTML = '';
+
+      // Get the input value
+      const choices = choicesInput.value.split(',');
+
+      // Create a list item for each choice and append to the ul
+      choices.forEach(choice => {
+        const listItem = document.createElement('li');
+        listItem.textContent = choice.trim();
+        choicesList.appendChild(listItem);
+      });
+
+      // Clear the input field
+      choicesInput.value = '';
+    });
+  </script>
+</body>
+</html>
